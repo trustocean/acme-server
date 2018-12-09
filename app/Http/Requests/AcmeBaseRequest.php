@@ -46,7 +46,6 @@ abstract class AcmeBaseRequest extends FormRequest
         return collect([
             'protected' => 'required',
             'protected.alg' => 'required|string',
-            'protected.jwk' => 'required|array',
             'protected.nonce' => 'required|string',
             'protected.url' => 'required|string',
             'payload' => 'required',

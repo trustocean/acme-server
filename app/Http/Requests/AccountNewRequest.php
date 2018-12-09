@@ -10,6 +10,7 @@ class AccountNewRequest extends AcmeBaseRequest
     protected function acmeRules()
     {
         return [
+            'protected.jwk' => 'required|array',
             'payload' => 'required',
             'payload.termsOfServiceAgreed' => 'required|bool|in:true',
             'payload.contact' => 'array',
