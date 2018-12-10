@@ -3,32 +3,35 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Base64Url\Base64Url;
+use Symfony\Component\HttpKernel\Exception\HttpException;
 
 abstract class AcmeBaseRequest extends FormRequest
 {
     /**
      * 因为 ACME 协议的请求都走了 base64url_encode, 此处解码出来
+     *
      * {@inheritDoc}
      */
     protected function prepareForValidation()
     {
-        // TODO: maybe base64 is not base64url
-        $protected = base64_decode($this->input('protected'));
-        $payload = base64_decode($this->input('payload'));
+        $protected = $this->input('protected');
+        if (!$protected) {
+            throw new HttpException(412, 'protected is required, and must be base64url encoded!');
+        }
+        $payload = $this->input('payload');
+        if (!$payload) {
+            throw new HttpException(412, 'payload is required, and must be base64url encoded!');
+        }
+
+        $protected = Base64Url::decode($protected);
+        $payload = Base64Url::decode($payload);
 
         $merge = [];
         $merge['protected'] = $protected;
         $merge['payload'] = $payload;
 
         $this->merge($merge);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function authorize()
-    {
-        return true;
     }
 
     /**
