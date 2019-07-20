@@ -5,6 +5,8 @@ namespace App\Exceptions;
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Illuminate\Validation\ValidationException;
+use Symfony\Component\HttpKernel\Exception\HttpException;
+use Illuminate\Support\Arr;
 
 class Handler extends ExceptionHandler
 {
@@ -60,5 +62,29 @@ class Handler extends ExceptionHandler
         }
 
         return $this->invalidJson($request, $e);
+    }
+
+    /**
+     * Convert the given exception to an array.
+     *
+     * @param  \Exception  $e
+     * @return array
+     */
+    protected function convertExceptionToArray(Exception $e)
+    {
+        return collect([
+            'type' => get_class($e),
+            'detail' => $e->getMessage(),
+            'status' => $e instanceof HttpException ? $e->getStatusCode() : $e->getCode(),
+            'file' => $e->getFile(),
+            'line' => $e->getLine(),
+            'trace' => collect($e->getTrace())->map(function ($trace) {
+                return Arr::except($trace, ['args']);
+            })->all(),
+        ])->except(config('app.debug') ? [] : [
+            'file',
+            'line',
+            'trace',
+        ])->toArray();
     }
 }
