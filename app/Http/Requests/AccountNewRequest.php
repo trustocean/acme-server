@@ -12,7 +12,7 @@ class AccountNewRequest extends AcmeBaseRequest
         return [
             'protected.jwk' => 'required|array',
             'payload' => 'required',
-            'payload.termsOfServiceAgreed' => 'required|bool|in:true',
+            'payload.termsOfServiceAgreed' => 'required|accepted',
             'payload.contact' => 'array',
         ];
     }

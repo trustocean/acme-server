@@ -24,8 +24,8 @@ abstract class AcmeBaseRequest extends FormRequest
             throw new HttpException(412, 'payload is required, and must be base64url encoded!');
         }
 
-        $protected = Base64Url::decode($protected);
-        $payload = Base64Url::decode($payload);
+        $protected = json_decode(Base64Url::decode($protected), true);
+        $payload = json_decode(Base64Url::decode($payload), true);
 
         $merge = [];
         $merge['protected'] = $protected;

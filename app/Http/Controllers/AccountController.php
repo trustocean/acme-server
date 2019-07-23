@@ -8,6 +8,7 @@ class AccountController extends Controller
 {
     public function new(AccountNewRequest $request)
     {
+        // @TODO: 存储到 account 模型
         return new AccountNewResponse(['id' => 1, 'emails' => 'xiaohui.lam@e.hexdata.cn']);
     }
 }
