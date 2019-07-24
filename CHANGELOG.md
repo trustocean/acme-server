@@ -1,5 +1,91 @@
 # Release Notes
 
+## [Unreleased](https://github.com/laravel/laravel/compare/v5.8.3...master)
+
+
+## [v5.8.16 (2019-05-07)](https://github.com/laravel/laravel/compare/v5.8.3...master)
+
+### Added
+- Add IDE type-hint to UserFactory ([#4990](https://github.com/laravel/laravel/pull/4990))
+- Update database config relating to Url addition ([#5018](https://github.com/laravel/laravel/pull/5018), [b0e0bdc](https://github.com/laravel/laravel/commit/b0e0bdc060ce068b73371919b904f3c7f0c1cfa6))
+
+### Changed
+- Upgrade the collision dependency from v2 to v3 ([#4963](https://github.com/laravel/laravel/pull/4963))
+- Ignore SQLite journals ([#4971](https://github.com/laravel/laravel/pull/4971))
+- Prefix redis database connection by default ([#4982](https://github.com/laravel/laravel/pull/4982), [#4986](https://github.com/laravel/laravel/pull/4986), [#4987](https://github.com/laravel/laravel/pull/4987))
+
+### Removed
+- Remove `.navbar-laravel` CSS class ([65f8271](https://github.com/laravel/laravel/commit/65f8271032c113883fb3f1e8e7b3279821148ad1))
+
+
+## [v5.8.3 (2019-03-05)](https://github.com/laravel/laravel/compare/v5.8.0...v5.8.3)
+
+### Added
+- Add AWS S3 Bucket to `.env.example` ([f84a69e](https://github.com/laravel/laravel/commit/f84a69ee852bd44363042a61995d330574b6b8c3))
+
+### Changed
+- Set default AWS region ([ff4f40f](https://github.com/laravel/laravel/commit/ff4f40fbabcefcb87facb1346fcfe5b8266eb40d), [#4956](https://github.com/laravel/laravel/pull/4956))
+
+### Fixed
+- Comment out non-existing model class and policy example ([f4ff4f4](https://github.com/laravel/laravel/commit/f4ff4f4176f7d931e301f36b95a46285ac61b8b8))
+- Only apply MySQL PDO options when extension exists ([3001f3c](https://github.com/laravel/laravel/commit/3001f3c6e232ba7ce2ecdbdfe6e43b4c64ee05ad))
+
+
+## [v5.8.0 (2019-02-26)](https://github.com/laravel/laravel/compare/v5.7.28...v5.8.0)
+
+### Added
+- Added DynamoDB configuration ([1be5e29](https://github.com/laravel/laravel/commit/1be5e29753d3592d0305db17d0bffcf312ef5625))
+- Add env variable for mysql ssl cert ([9180f64](https://github.com/laravel/laravel/commit/9180f646d3a99e22d2d2a957df6ed7b550214b2f))
+- Add beanstalk queue block_for config key ([#4913](https://github.com/laravel/laravel/pull/4913))
+- Add `hash` config param to api auth driver ([d201c69](https://github.com/laravel/laravel/commit/d201c69a8bb6cf7407ac3a6c0a0e89f183061682))
+- Add postmark token ([4574265](https://github.com/laravel/laravel/commit/45742652ccb0de5e569c23ec826f6106a8550432))
+- Add `Arr` and `Str` aliases by default ([#4951](https://github.com/laravel/laravel/pull/4951))
+
+### Changed
+- Change password min length to 8 ([#4794](https://github.com/laravel/laravel/pull/4794)) 
+- Update UserFactory password ([#4797](https://github.com/laravel/laravel/pull/4797))
+- Update AWS env variables ([87667b2](https://github.com/laravel/laravel/commit/87667b25ae57308f8bbc47f45222d2d1de3ffeed))
+- Update minimum PHPUnit version to 7.5 ([7546842](https://github.com/laravel/laravel/commit/75468420a4c6c28b980319240056e884b4647d63))
+- Replace string helper ([fae44ee](https://github.com/laravel/laravel/commit/fae44eeb26d549a695a1ea0267b117adf55f83e8))
+- Use `$_SERVER` instead of `$_ENV` for PHPUnit ([#4943](https://github.com/laravel/laravel/pull/4943))
+- Add `REDIS_CLIENT` env variable ([ea7fc0b](https://github.com/laravel/laravel/commit/ea7fc0b3361a3d3dc2cb9f83f030669bbcb31e1d))
+- Use bigIncrements by default ([#4946](https://github.com/laravel/laravel/pull/4946))
+
+### Fixed
+- Fix unterminated statements ([#4952](https://github.com/laravel/laravel/pull/4952))
+
+### Removed
+- Removed error svgs ([cfc2220](https://github.com/laravel/laravel/commit/cfc2220109dd0813ad5d19702b58b3b1a0a2222e))
+
+
+## [v5.7.28 (2019-02-05)](https://github.com/laravel/laravel/compare/v5.7.19...v5.7.28)
+
+### Added
+- Hint for lenient log stacks ([#4918](https://github.com/laravel/laravel/pull/4918))
+- Attribute casting for `email_verified_at` on `User` model stub ([#4930](https://github.com/laravel/laravel/pull/4930))
+
+### Changed
+- Remove unused Bootstrap class ([#4917](https://github.com/laravel/laravel/pull/4917))
+- Change order of boot and register methods in service providers ([#4921](https://github.com/laravel/laravel/pull/4921))
+- `web.config` comment to help debug issues ([#4924](https://github.com/laravel/laravel/pull/4924))
+- Use `Str::random()` instead of `str_random()` ([#4926](https://github.com/laravel/laravel/pull/4926))
+- Remove unnecessary link type on "welcome" view ([#4935](https://github.com/laravel/laravel/pull/4935))
+
+
+## [v5.7.19 (2018-12-15)](https://github.com/laravel/laravel/compare/v5.7.15...v5.7.19)
+
+### Added
+- Add language entry for `starts_with` rule ([#4866](https://github.com/laravel/laravel/pull/4866))
+- Add env variable ([e1b8847](https://github.com/laravel/laravel/commit/e1b8847a92bdd85163990ee2e3284262da09b5fd))
+
+### Changed
+- Update .gitignore ([bc435e7](https://github.com/laravel/laravel/commit/bc435e7fdd8308d133a404b1daa811dd30d95fe5))
+- Bump to Mix v4 ([4882](https://github.com/laravel/laravel/pull/4882))
+
+### Fixed
+- Fixed mixed up comment order ([#4867](https://github.com/laravel/laravel/pull/4867))
+
+
 ## [v5.7.15 (2018-11-22)](https://github.com/laravel/laravel/compare/v5.7.13...v5.7.15)
 
 ### Added
@@ -101,7 +187,7 @@
 - Set `bcrypt rounds` using the `hashing` config ([#4643](https://github.com/laravel/laravel/pull/4643))
 
 
-## v5.6.12 (2018-03-14)
+## [v5.6.12 (2018-03-14)](https://github.com/laravel/laravel/compare/v5.6.7...v5.6.12)
 
 ### Added
 - Added message for `not_regex` validation rule ([#4602](https://github.com/laravel/laravel/pull/4602))
@@ -115,7 +201,7 @@
 - Removed "thanks" package ([#4593](https://github.com/laravel/laravel/pull/4593))
 
 
-## v5.6.7 (2018-02-27)
+## [v5.6.7 (2018-02-27)](https://github.com/laravel/laravel/compare/v5.6.0...v5.6.7)
 
 ### Changed
 - Use `Hash::make()` in `RegisterController` ([#4570](https://github.com/laravel/laravel/pull/4570))
@@ -125,7 +211,7 @@
 - Removed Bootstrap 3 variables ([#4572](https://github.com/laravel/laravel/pull/4572))
 
 
-## v5.6.0 (2018-02-07)
+## [v5.6.0 (2018-02-07)](https://github.com/laravel/laravel/compare/v5.5.28...v5.6.0)
 
 ### Added
 - Added `filesystems.disks.s3.url` config parameter ([#4483](https://github.com/laravel/laravel/pull/4483))
@@ -145,7 +231,7 @@
 - Use Mix environment variables ([224f994](https://github.com/laravel/laravel/commit/224f9949c74fcea2eeceae0a1f65d9c2e7498a27), [2db1e0c](https://github.com/laravel/laravel/commit/2db1e0c5e8525f3ee4b3850f0116c13224790dff))
 
 
-## v5.5.28 (2018-01-03)
+## [v5.5.28 (2018-01-03)](https://github.com/laravel/laravel/compare/v5.5.22...v5.5.28)
 
 ### Added
 - Added `symfony/thanks` ([60de3a5](https://github.com/laravel/laravel/commit/60de3a5670c4a3bf5fb96433828b6aadd7df0e53))
@@ -157,7 +243,7 @@
 - Updated default Echo configuration for Pusher ([#4525](https://github.com/laravel/laravel/pull/4525), [aad5940](https://github.com/laravel/laravel/commit/aad59400e2d69727224a3ca9b6aa9f9d7c87e9f7), [#4526](https://github.com/laravel/laravel/pull/4526), [a32af97](https://github.com/laravel/laravel/commit/a32af97ede49fdd57e8217a9fd484b4cb4ab1bbf))
 
 
-## v5.5.22 (2017-11-21)
+## [v5.5.22 (2017-11-21)](https://github.com/laravel/laravel/compare/v5.5.0...v5.5.22)
 
 ### Added
 - Added `-Indexes` option in `.htaccess` ([#4422](https://github.com/laravel/laravel/pull/4422))
@@ -173,7 +259,7 @@
 - Fixed directive order in `.htaccess` ([#4433](https://github.com/laravel/laravel/pull/4433))
 
 
-## v5.5.0 (2017-08-30)
+## [v5.5.0 (2017-08-30)](https://github.com/laravel/laravel/compare/v5.4.30...v5.5.0)
 
 ### Added
 - Added `same_site` to `session.php` config ([#4168](https://github.com/laravel/laravel/pull/4168))
@@ -199,7 +285,7 @@
 - Removed migrations from autoload classmap ([#4340](https://github.com/laravel/laravel/pull/4340))
 
 
-## v5.4.30 (2017-07-20)
+## [v5.4.30 (2017-07-20)](https://github.com/laravel/laravel/compare/v5.4.23...v5.4.30)
 
 ### Changed
 - Simplified mix require ([#4283](https://github.com/laravel/laravel/pull/4283))
@@ -212,7 +298,7 @@
 - Use quotes in `app.scss` ([#4287](https://github.com/laravel/laravel/pull/4287))
 
 
-## v5.4.23 (2017-05-11)
+## [v5.4.23 (2017-05-11)](https://github.com/laravel/laravel/compare/v5.4.21...v5.4.23)
 
 ### Added
 - Added SQL Server connection ([#4253](https://github.com/laravel/laravel/pull/4253), [#4254](https://github.com/laravel/laravel/pull/4254))
@@ -226,7 +312,7 @@
 - Added missing `ipv4` and `ipv6` validation messages ([#4261](https://github.com/laravel/laravel/pull/4261))
 
 
-## v5.4.21 (2017-04-28)
+## [v5.4.21 (2017-04-28)](https://github.com/laravel/laravel/compare/v5.4.19...v5.4.21)
 
 ### Added
 - Added `FILESYSTEM_DRIVER` and `FILESYSTEM_CLOUD` environment variables ([#4236](https://github.com/laravel/laravel/pull/4236))
@@ -235,7 +321,7 @@
 - Use lowercase doctype ([#4241](https://github.com/laravel/laravel/pull/4241))
 
 
-## v5.4.19 (2017-04-20)
+## [v5.4.19 (2017-04-20)](https://github.com/laravel/laravel/compare/v5.4.16...v5.4.19)
 
 ### Added
 - Added `optimize-autoloader` to `config` in `composer.json` ([#4189](https://github.com/laravel/laravel/pull/4189))
@@ -253,7 +339,7 @@
 - Use fluent middleware definition in `LoginController` ([#4229](https://github.com/laravel/laravel/pull/4229))
 
 
-## v5.4.16 (2017-03-17)
+## [v5.4.16 (2017-03-17)](https://github.com/laravel/laravel/compare/v5.4.15...v5.4.16)
 
 ### Added
 - Added `unix_socket` to `mysql` in `config/database.php` ()[#4179](https://github.com/laravel/laravel/pull/4179))
