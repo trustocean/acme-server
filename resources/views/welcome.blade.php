@@ -44,6 +44,7 @@
             }
 
             .title {
+                max-width: 510px;
                 font-size: 20px;
                 font-weight: bold;
                 text-align: center;
