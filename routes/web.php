@@ -13,4 +13,4 @@
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->middleware('cache.headers:public;max_age=2628000;etag');
