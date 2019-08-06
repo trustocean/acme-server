@@ -20,11 +20,21 @@ class Authenticate
      */
     public function handle($request, Closure $next)
     {
-        list($algorithm, $format) = app(DataSigner::class)->extractSignOptionFromJWSAlg($request->input('protected.alg'));
+        /**
+         * @var DataSigner $dataSigner
+         */
+        $dataSigner = app(DataSigner::class);
 
-        $signature = app(Base64SafeEncoder::class)->decode($request->input('signature'));
-        $protected = app(Base64SafeEncoder::class)->decode($request->input('_protected'));
-        $payload = app(Base64SafeEncoder::class)->decode($request->input('_payload'));
+        /**
+         * @var Base64SafeEncoder $base64SafeEncoder
+         */
+        $base64SafeEncoder = app(Base64SafeEncoder::class);
+
+        list($algorithm, $format) = $dataSigner->extractSignOptionFromJWSAlg($request->input('protected.alg'));
+
+        $signature = $base64SafeEncoder->decode($request->input('signature'));
+        $protected = $base64SafeEncoder->decode($request->input('_protected'));
+        $payload = $base64SafeEncoder->decode($request->input('_payload'));
 
         $kid = $request->input('protected.kid');
         $userId = Arr::last(explode('/', $kid));
@@ -41,7 +51,7 @@ class Authenticate
         $convert = new JWKConverter();
 
         $publicKey = PublicKey::fromDER($convert->toPEM($jwk));
-        app(DataSigner::class)->checkSign($signature, $protected . '.' . $payload, $publicKey, $algorithm, $format);
+        $dataSigner->checkSign($signature, $protected . '.' . $payload, $publicKey, $algorithm, $format);
         //print_r($request->all());exit;
         return $next($request);
     }
