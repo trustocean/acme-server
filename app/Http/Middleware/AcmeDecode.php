@@ -28,6 +28,8 @@ class AcmeDecode
         $merge = [];
         $merge['protected'] = $protected;
         $merge['payload'] = $payload;
+        $merge['_protected'] = $request['protected'];
+        $merge['_payload'] = $request['payload'];
 
         $request->merge($merge);
 
