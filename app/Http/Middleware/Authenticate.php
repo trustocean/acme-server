@@ -33,8 +33,8 @@ class Authenticate
         list($algorithm, $format) = $dataSigner->extractSignOptionFromJWSAlg($request->input('protected.alg'));
 
         $signature = $base64SafeEncoder->decode($request->input('signature'));
-        $protected = $base64SafeEncoder->decode($request->input('_protected'));
-        $payload = $base64SafeEncoder->decode($request->input('_payload'));
+        $protected = $request->input('_protected');
+        $payload = $request->input('_payload');
 
         $kid = $request->input('protected.kid');
         $userId = Arr::last(explode('/', $kid));
@@ -50,9 +50,8 @@ class Authenticate
         ];
         $convert = new JWKConverter();
 
-        $publicKey = PublicKey::fromDER($convert->toPEM($jwk));
+        $publicKey = new PublicKey($convert->toPEM($jwk));
         $dataSigner->checkSign($signature, $protected . '.' . $payload, $publicKey, $algorithm, $format);
-        //print_r($request->all());exit;
         return $next($request);
     }
 }
