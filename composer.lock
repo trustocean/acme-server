@@ -63,7 +63,7 @@
         },
         {
             "name": "alibabacloud/alidns",
-            "version": "1.7.56",
+            "version": "1.7.61",
             "source": {
                 "type": "git",
                 "url": "https://github.com/alibabacloud-sdk-php/alidns.git",
@@ -117,7 +117,7 @@
         },
         {
             "name": "alibabacloud/cdn",
-            "version": "1.7.56",
+            "version": "1.7.61",
             "source": {
                 "type": "git",
                 "url": "https://github.com/alibabacloud-sdk-php/cdn.git",
@@ -258,7 +258,7 @@
         },
         {
             "name": "alibabacloud/wafopenapi",
-            "version": "1.7.56",
+            "version": "1.7.61",
             "source": {
                 "type": "git",
                 "url": "https://github.com/alibabacloud-sdk-php/wafopenapi.git",
@@ -1574,16 +1574,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.8.30",
+            "version": "v5.8.31",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "7ccf0cf63931a8d8391aed90e6fc011381ea6838"
+                "reference": "24cc1786bd55876fa52380306354772355345efd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/7ccf0cf63931a8d8391aed90e6fc011381ea6838",
-                "reference": "7ccf0cf63931a8d8391aed90e6fc011381ea6838",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/24cc1786bd55876fa52380306354772355345efd",
+                "reference": "24cc1786bd55876fa52380306354772355345efd",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -1723,7 +1723,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2019-07-30T14:08:47+00:00"
+            "time": "2019-08-06T15:09:02+00:00"
         },
         {
             "name": "laravel/tinker",
@@ -5283,12 +5283,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/trustocean/acme-client.git",
-                "reference": "79cd99acaaba710b53b7caa2ba041ad17ea31e07"
+                "reference": "ce561b0b951b7ea954df14e4fcc1e5911d450bc9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/trustocean/acme-client/zipball/79cd99acaaba710b53b7caa2ba041ad17ea31e07",
-                "reference": "79cd99acaaba710b53b7caa2ba041ad17ea31e07",
+                "url": "https://api.github.com/repos/trustocean/acme-client/zipball/ce561b0b951b7ea954df14e4fcc1e5911d450bc9",
+                "reference": "ce561b0b951b7ea954df14e4fcc1e5911d450bc9",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -5389,7 +5389,7 @@
                 "ssl",
                 "x509"
             ],
-            "time": "2019-08-03T07:50:41+00:00"
+            "time": "2019-08-06T09:47:08+00:00"
         },
         {
             "name": "trustocean/sdk",
