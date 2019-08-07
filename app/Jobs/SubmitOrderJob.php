@@ -2,16 +2,17 @@
 
 namespace App\Jobs;
 
+use App\Models\User;
+use App\Models\Order;
+use Illuminate\Support\Str;
 use Illuminate\Bus\Queueable;
+use Londry\TrustOceanSSL\model\Csr;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
-use Illuminate\Support\Str;
-use App\Models\Order;
 use Londry\TrustOceanSSL\definition\CertificateType;
 use Londry\TrustOceanSSL\definition\CertificatePeriod;
-use Londry\TrustOceanSSL\model\Csr;
 
 class SubmitOrderJob implements ShouldQueue
 {
@@ -41,7 +42,7 @@ class SubmitOrderJob implements ShouldQueue
      *
      * @return void
      */
-    public function __construct(Order $order)
+    public function __construct(Order $order, User $user)
     {
         $this->order = $order;
     }

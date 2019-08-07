@@ -17,16 +17,19 @@ class OrderController extends Controller
 {
     public function create(OrderNewRequest $request)
     {
+        $user = user();
+
         $order = new Order();
         $order->fill([
             'identifiers' => $request->input('payload.identifiers'),
             'csr' => restore_csr($request->input('payload.csr')),
             'challenge_type' => $request->input('payload.challenge_type'),
         ]);
+        $order->user()->associate($user);
         $order->save();
 
-        // 将 $order 提交给 trustocean. 但是, 在finalize 时候才提交 csr
-        dispatch(new SubmitOrderJob($order));
+        // 将 $order 提交给 trustocean.
+        dispatch(new SubmitOrderJob($order, $user));
 
         return new OrderNewResponse($order);
     }

@@ -18,3 +18,15 @@ if (!function_exists('restore_csr')) {
         return $list->implode(PHP_EOL);
     }
 }
+
+if (!function_exists('user')) {
+    /**
+     * 返回当前请求中校验通过的用户
+     *
+     * @return \App\Models\User|null
+     */
+    function user()
+    {
+        return app()->user;
+    }
+}

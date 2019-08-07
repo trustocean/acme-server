@@ -40,6 +40,13 @@ class Authenticate
         $userId = Arr::last(explode('/', $kid));
         $user = User::findOrFail($userId);
 
+        app()->singleton('user_id', function () use ($userId) {
+            return $userId;
+        });
+        app()->singleton('user', function () use ($user) {
+            return User::find(app()->user_id);
+        });
+
         $jwk = [
             "kty" => $user->kty,
             "kid" => $kid,
