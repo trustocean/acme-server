@@ -52,12 +52,12 @@ class Authenticate
         }
 
         $jwk = [
-            "kty" => $user->public_key->kty,
+            "kty" => data_get($user->public_key, 'kty'),
             "kid" => $kid,
             "use" => "sig",
             "alg" => $algorithm,
-            "e" => $user->public_key->e,
-            "n" => $user->public_key->n,
+            "e" => data_get($user->public_key, 'e'),
+            "n" => data_get($user->public_key, 'n'),
         ];
         $convert = new JWKConverter();
 
