@@ -32,10 +32,13 @@ class User extends Model implements ModelInterface
     protected $fillable = [
         'email',
         'public_key',
+        'fingerprint',
     ];
 
     protected $casts = [
         'public_key' => 'array',
+        'fingerprint' => 'string',
+        'email' => 'string',
     ];
 
     public function orders()
