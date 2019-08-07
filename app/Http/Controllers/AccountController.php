@@ -30,10 +30,15 @@ class AccountController extends Controller
             'fingerprint' => $fingerprint,
         ];
 
+        $user = User::where('fingerprint', $fingerprint)->first();
         if ($onlyReturnExisting) {
-            $user = User::where('fingerprint', $fingerprint)->firstOrFail();
+            if (!$user) {
+                abort(404, 'User not exists');
+            }
         } else {
-            $user = User::firstOrCreate($attributes);
+            if (!$user) {
+                $user = User::create($attributes);
+            }
         }
 
         return new AccountResponse($user);
