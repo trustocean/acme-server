@@ -47,13 +47,17 @@ class Authenticate
             return User::find(app()->user_id);
         });
 
+        if (!$user->public_key) {
+            abort(500, 'system error');
+        }
+
         $jwk = [
-            "kty" => $user->kty,
+            "kty" => $user->public_key->kty,
             "kid" => $kid,
             "use" => "sig",
             "alg" => $algorithm,
-            "e" => $user->e,
-            "n" => $user->n,
+            "e" => $user->public_key->e,
+            "n" => $user->public_key->n,
         ];
         $convert = new JWKConverter();
 

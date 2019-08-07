@@ -3,15 +3,15 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Interfaces\ModelInterface;
 
 /**
  * App\Models\User
  *
  * @property int $id
  * @property string|null $email Email
- * @property string $kty Key Type: RSA/ECSDA
- * @property string $e E
- * @property string $n N, 原则上要做唯一性判断
+ * @property array $public_key kty e n
+ * @property string $fingerprint
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Order[] $orders
@@ -27,13 +27,15 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereUpdatedAt($value)
  * @mixin \Eloquent
  */
-class User extends Model
+class User extends Model implements ModelInterface
 {
     protected $fillable = [
         'email',
-        'kty',
-        'e',
-        'n',
+        'public_key',
+    ];
+
+    protected $casts = [
+        'public_key' => 'array',
     ];
 
     public function orders()

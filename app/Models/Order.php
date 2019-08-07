@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Interfaces\ModelInterface;
 
 /**
  * App\Models\Order
@@ -44,7 +45,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Order whereUserId($value)
  * @mixin \Eloquent
  */
-class Order extends Model
+class Order extends Model implements ModelInterface
 {
     protected $fillable = [
         'identifiers',

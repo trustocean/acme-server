@@ -5,6 +5,7 @@ use App\Models\User;
 use App\Http\Requests\AccountNewRequest;
 use App\Http\Requests\AccountDetailRequest;
 use App\Http\Responses\AccountResponse;
+use CoderCat\JWKToPEM\JWKConverter;
 
 class AccountController extends Controller
 {
@@ -14,20 +15,23 @@ class AccountController extends Controller
         $alg = $request->input('protected.alg');
         $nonce = $request->input('protected.nonce');
 
-        $jwk_e = $request->input('protected.jwk.e');
-        $jwk_kty = $request->input('protected.jwk.kty');
-        $jwk_n = $request->input('protected.jwk.n');
+        $jwk = $request->input('protected.jwk');
         $email =  str_replace('mailto:', '', collect($request->input('payload.contact'))->first());
+
+        $convert = new JWKConverter();
+        $publicKey = $convert->toPEM($jwk);
+        $publicKey = trim(str_replace(['-----BEGIN PUBLIC KEY-----', '-----END PUBLIC KEY-----', PHP_EOL, "\r"], '', $publicKey));
+        $publicKey = base64_decode($publicKey);
+        $fingerprint = md5($publicKey);
 
         $attributes = [
             'email' => $email,
-            'e' => $jwk_e,
-            'kty' => $jwk_kty,
-            'n' => $jwk_n,
+            'public_key' => $jwk,
+            'fingerprint' => $fingerprint,
         ];
+
         if ($onlyReturnExisting) {
-            unset($attributes['email']);
-            $user = User::where($attributes)->firstOrFail();
+            $user = User::where('fingerprint', $fingerprint)->firstOrFail();
         } else {
             $user = User::firstOrCreate($attributes);
         }
