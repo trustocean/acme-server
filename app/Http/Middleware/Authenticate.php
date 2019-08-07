@@ -51,14 +51,7 @@ class Authenticate
             abort(500, 'system error');
         }
 
-        $jwk = [
-            "kty" => data_get($user->public_key, 'kty'),
-            "kid" => $kid,
-            "use" => "sig",
-            "alg" => $algorithm,
-            "e" => data_get($user->public_key, 'e'),
-            "n" => data_get($user->public_key, 'n'),
-        ];
+        $jwk = collect($user->public_key)->merge(["kid" => $kid, "use" => "sig", "alg" => $algorithm, ])->toArray();
         $convert = new JWKConverter();
 
         $publicKey = new PublicKey($convert->toPEM($jwk));
