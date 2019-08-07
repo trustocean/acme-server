@@ -9,7 +9,6 @@ use App\Models\Interfaces\ModelInterface;
  * App\Models\Order
  *
  * @property int $id
- * @property int|null $account_id
  * @property int|null $ca_order_id
  * @property array $identifiers 域名  [ [ "type" => "dns", "value" => "www.zhihu.com" ],... ]
  * @property string $challenge_type
