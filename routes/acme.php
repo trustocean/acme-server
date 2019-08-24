@@ -8,7 +8,7 @@
 | 定义ACME的API
 */
 
-# Route::get('/', 'HomeController@index');
+Route::get('/', 'HomeController@index');
 
 Route::get('/directory', 'DirectoryController@index')->name('acme.directory');
 
