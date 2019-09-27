@@ -19,8 +19,8 @@ class DirectoryController extends Controller
                     "comodoca.com",
                     "comodo.com"
                 ],
-                "termsOfService" => "https://www.trustocean.com/product-contract-list",
-                "website" => "https://www.trustocean.com/",
+                "termsOfService" => "https://www.digital-sign.com.cn/term-of-service",
+                "website" => "https://www.digital-sign.com.cn",
                 "csrEager" => true,
             ],
         ]);
