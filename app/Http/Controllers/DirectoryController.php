@@ -19,7 +19,7 @@ class DirectoryController extends Controller
                     "comodoca.com",
                     "comodo.com"
                 ],
-                "termsOfService" => "https://www.digital-sign.com.cn/term-of-service",
+                "termsOfService" => "https://www.digital-sign.com.cn/article/term-of-service",
                 "website" => "https://www.digital-sign.com.cn",
                 "csrEager" => true,
             ],
