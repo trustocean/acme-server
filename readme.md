@@ -12,8 +12,10 @@
 
 ```bash
 git clone https://github.com/trustocean/acme-server.git ./
-cp .env.example .env
 composer install
+cp .env.example .env
+vim .env # 修改其中的 DB_ 开头的数据库连接信息
+php artisan migrate
 php artisan key:generate
 php artisan serve
 ```
