@@ -72,7 +72,7 @@ class OrderController extends Controller
                     'path' => '/.well-known/pki-validation/',
                     'token' => data_get($domain_dcv, 'http_filename'),
                     'filecontent' => data_get($domain_dcv, 'http_filecontent'),
-                        'verifyurl' => data_get($domain_dcv, 'http_verifylink'),
+                    'verifyurl' => data_get($domain_dcv, 'http_verifylink'),
                 ]
                 :
                 [
