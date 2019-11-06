@@ -72,7 +72,7 @@ class OrderController extends Controller
                     'path' => '/.well-known/pki-validation/',
                     'token' => data_get($domain_dcv, 'http_filename'),
                     'filecontent' => data_get($domain_dcv, 'http_filecontent'),
-                    'verifyurl' => data_get($domain_dcv, 'http_verifylink'),
+                    'verifyurl' => str_replace('*.', '', data_get($domain_dcv, 'http_verifylink')),
                 ]
                 :
                 [
@@ -82,7 +82,7 @@ class OrderController extends Controller
                     'path' => data_get($domain_dcv, 'dns_type'),
                     'token' => data_get($domain_dcv, 'dns_host'),
                     'filecontent' => data_get($domain_dcv, 'dns_value'),
-                    'verifyurl' => data_get($domain_dcv, 'http_verifylink'),
+                    'verifyurl' => str_replace('*.', '', data_get($domain_dcv, 'http_verifylink')),
                 ]
             ],
         ]);
@@ -141,7 +141,7 @@ class OrderController extends Controller
             'url' => route('acme.account.authz_submit', [$order_id, $domain]),
             'token' => data_get($domain_dcv, 'http_filename'),
             'filecontent' => data_get($domain_dcv, 'http_filecontent'),
-            'verifyurl' => data_get($domain_dcv, 'http_verifylink'),
+            'verifyurl' => str_replace('*.', '', data_get($domain_dcv, 'http_verifylink')),
         ]);
     }
 
